@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Food Waste Management</h1>
+    </header>
+
+    <!-- User Registration Form -->
+    <section class="registration" id="registrationSection">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="registerUser()">Register</button>
+        </form>
+    </section>
+
+    <!-- Food Donation Form -->
+    <section class="donation" id="donationFormSection" style="display: none;">
+        <h2>Donate Food</h2>
+        <form>
+            <label for="foodType">Food Type:</label>
+            <input type="text" id="foodType" name="foodType" required>
+
+            <label for="foodQuantity">Food Quantity:</label>
+            <input type="text" id="foodQuantity" name="foodQuantity" required>
+
+            <label for="foodLocation">Food Location:</label>
+            <input type="text" id="foodLocation" name="foodLocation" required>
+
+            <label for="nearbyAreas">Nearby Areas:</label>
+            <input type="text" id="nearbyAreas" name="nearbyAreas" required>
+
+            <label for="contactInfo">Contact Info:</label>
+            <input type="text" id="contactInfo" name="contactInfo" required>
+
+            <button type="button" onclick="submitDonation()">Submit Donation</button>
+        </form>
+    </section>
+
+    <!-- Waste Entry Form -->
+    <section class="waste-entry" id="wasteEntryFormSection" style="display: none;">
+        <h2>Waste Entry</h2>
+        <form>
+            <label for="wasteType">Waste Type:</label>
+            <input type="text" id="wasteType" name="wasteType" required>
+
+            <label for="wasteQuantity">Waste Quantity:</label>
+            <input type="text" id="wasteQuantity" name="wasteQuantity" required>
+
+            <button type="button" onclick="submitWasteEntry()">Submit Waste Entry</button>
+        </form>
+    </section>
+
+    <!-- Display Food and Waste Entries -->
+    <section class="food-list" id="foodListSection" style="display: none;">
+        <h2>Available Food Donations</h2>
+        <table id="foodListTable">
+            <thead>
+                <tr>
+                    <th>Food Type</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th>Nearby Areas</th>
+                    <th>Contact Info</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="foodEntries"></tbody>
+        </table>
+    </section>
+
+    <section class="waste-list" id="wasteListSection" style="display: none;">
+        <h2>Waste Entries</h2>
+        <table id="wasteListTable">
+            <thead>
+                <tr>
+                    <th>Waste Type</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="wasteEntries"></tbody>
+        </table>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analyticsSection" style="display: none;">
+        <h2>Analytics</h2>
+        <p id="analyticsData"></p>
+    </section>
+
+    <!-- Nearby Organization Map View -->
+    <section id="mapSection" style="display: none;">
+        <h2>Nearby Organizations</h2>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <!-- Notifications -->
+    <section id="notificationsSection" style="display: none;">
+        <h2>Notifications</h2>
+        <ul id="notificationsList"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
